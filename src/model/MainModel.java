@@ -26,31 +26,30 @@ public class MainModel implements Runnable{
 		MainWindow.window.progressBar.setMaximum(files.length);
 		for(File currentFile : files){
 			String extension = getExtension(currentFile);
-			if(!currentFile.isDirectory()){
-				switch (extension) {
-				case "zip": case "rar" :
-					move(currentFile,"archives");
-					break;
-				case "jpg": case "gif" : case "jpeg" : case "png" : 
-					move(currentFile,"images");
-					break;
-				case "txt": case "doc" : case "rtf" : case "pdf" : 
-					move(currentFile,"documents");
-					break;
-				case "mp3": case "wma" : case "flac" :
-					move(currentFile,"audio");
-					break;
-				case "avi": case "wmv" : case "mpeg" : case "mp4" : 
-					move(currentFile,"video");
-					break;
-				case "exe":
-					move(currentFile,"executables");
-					break;
-				default:
-					move(currentFile,"other");
-					break;
-				}
+			switch (extension) {
+			case "zip": case "rar" :
+				move(currentFile,"archives");
+				break;
+			case "jpg": case "gif" : case "jpeg" : case "png" : 
+				move(currentFile,"images");
+				break;
+			case "txt": case "doc" : case "rtf" : case "pdf" : 
+				move(currentFile,"documents");
+				break;
+			case "mp3": case "wma" : case "flac" :
+				move(currentFile,"audio");
+				break;
+			case "avi": case "wmv" : case "mpeg" : case "mp4" : 
+				move(currentFile,"video");
+				break;
+			case "exe":
+				move(currentFile,"executables");
+				break;
+			default:
+				move(currentFile,"other");
+				break;
 			}
+
 		}
 		
 		//Finished
