@@ -21,7 +21,6 @@ public class MainModel implements Runnable{
 	public void run() {
 		//Number of files moved.
 		File files [] = directory.listFiles(new myFilter());
-		System.out.println(files.length);
 		
 		//Setting up the progress bar as the number of files.
 		MainWindow.window.progressBar.setMaximum(files.length);

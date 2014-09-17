@@ -10,10 +10,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
 
 import controller.MainController;
+
 import javax.swing.JProgressBar;
 
 public class MainWindow {
@@ -88,8 +90,13 @@ public class MainWindow {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			fileChooser.showOpenDialog(frmFileautoorganizerV);
+			try{
 			String directory = fileChooser.getSelectedFile().toString();
-			dirTextBox.setText(directory);
+			if(!directory.isEmpty())
+				dirTextBox.setText(directory);
+			}catch(NullPointerException error){
+				JOptionPane.showMessageDialog(MainWindow.window.frmFileautoorganizerV, "Choose a directory!","Error",JOptionPane.ERROR_MESSAGE);
+			}
 			
 		}
 		
