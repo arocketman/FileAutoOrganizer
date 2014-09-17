@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FilenameFilter;
 
 import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileFilter;
 
 import view.MainWindow;
 public class MainModel implements Runnable{
