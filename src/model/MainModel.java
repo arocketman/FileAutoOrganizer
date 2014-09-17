@@ -27,22 +27,22 @@ public class MainModel implements Runnable{
 		for(File currentFile : files){
 			String extension = getExtension(currentFile);
 			switch (extension) {
-			case "zip": case "rar" :
+			case "zip": case "rar" : case "7z" : case "gz" : 
 				move(currentFile,"archives");
 				break;
-			case "jpg": case "gif" : case "jpeg" : case "png" : 
+			case "jpg": case "gif" : case "jpeg" : case "png" : case "tga" : case "psd" : case "bmp" : case "tif" : case "tiff" : case "yuv" :
 				move(currentFile,"images");
 				break;
-			case "txt": case "doc" : case "rtf" : case "pdf" : 
+			case "txt": case "doc" : case "rtf" : case "pdf" : case "odt" : case "docx" : case "tex" : 
 				move(currentFile,"documents");
 				break;
-			case "mp3": case "wma" : case "flac" :
+			case "mp3": case "wma" : case "flac" : case "aac" : case "amr" : case "m4a" : case "wav":
 				move(currentFile,"audio");
 				break;
-			case "avi": case "wmv" : case "mpeg" : case "mp4" : 
+			case "avi": case "wmv" : case "mpeg" : case "mp4" : case "3gp" : case "divx" : case "mov" : case "rm":
 				move(currentFile,"video");
 				break;
-			case "exe":
+			case "exe": case "bat" : case "jar" : case "com" : case "vb" : case "apk" : 
 				move(currentFile,"executables");
 				break;
 			default:
