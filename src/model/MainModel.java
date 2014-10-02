@@ -32,7 +32,7 @@ public class MainModel implements Runnable{
 			case "jpg": case "gif" : case "jpeg" : case "png" : case "tga" : case "psd" : case "bmp" : case "tif" : case "tiff" : case "yuv" :
 				move(currentFile,"images");
 				break;
-			case "txt": case "doc" : case "rtf" : case "pdf" : case "odt" : case "docx" : case "tex" : 
+			case "txt": case "doc" : case "rtf" : case "pdf" : case "odt" : case "docx" : case "tex" : case "nfo" : 
 				move(currentFile,"documents");
 				break;
 			case "mp3": case "wma" : case "flac" : case "aac" : case "amr" : case "m4a" : case "wav":
