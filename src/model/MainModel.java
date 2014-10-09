@@ -2,6 +2,7 @@ package model;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -10,10 +11,12 @@ public class MainModel implements Runnable{
 
 	File directory;
 	int nFiles;
+	//List the names of the file that couldn't be moved.
+	ArrayList<String> filesFailedMove;
 	
 	public MainModel(File f) {
 		this.directory = f;
-		
+		filesFailedMove = new ArrayList<String>();
 	}
 
 	@Override
@@ -53,6 +56,9 @@ public class MainModel implements Runnable{
 		
 		//Finished
 		JOptionPane.showMessageDialog(MainWindow.window.frmFileautoorganizerV, "We are done! Moved files: " + nFiles,"Done",JOptionPane.INFORMATION_MESSAGE);
+		if(!filesFailedMove.isEmpty())
+			JOptionPane.showMessageDialog(MainWindow.window.frmFileautoorganizerV, "The following files couldn't be moved:\n" + getUnableToMoveFiles() ,"Done",JOptionPane.INFORMATION_MESSAGE);
+		
 		
 	}
 	
@@ -61,11 +67,20 @@ public class MainModel implements Runnable{
 		File newDir = new File(currentFile.getParent() + "\\" + folderName);
 		if(!newDir.exists()) 
 			newDir.mkdir();
-		currentFile.renameTo(new File(currentFile.getParent() + "\\" + folderName + "\\" + currentFile.getName()));
-		nFiles++;
+		boolean success = currentFile.renameTo(new File(currentFile.getParent() + "\\" + folderName + "\\" + currentFile.getName()));
+		if(success) nFiles++;
+		else filesFailedMove.add(currentFile.getName());
 		MainWindow.window.progressBar.setValue(nFiles);
 
 		
+	}
+	
+	private String getUnableToMoveFiles(){
+		String buildMeUp = "";
+		for(String filename : filesFailedMove){
+			buildMeUp += "-" + filename + "\n";
+		}
+		return buildMeUp;
 	}
 
 	private String getExtension(File currentFile){
