@@ -63,7 +63,6 @@ public class MainModel implements Runnable{
 	}
 	
 	private void move(File currentFile, String folderName) {
-		//TODO: Would it be better to use Files.move instead ?
 		File newDir = new File(currentFile.getParent() + "\\" + folderName);
 		if(!newDir.exists()) 
 			newDir.mkdir();
@@ -75,6 +74,9 @@ public class MainModel implements Runnable{
 		
 	}
 	
+	/*
+	*Builds up the files that cannot be moved . 
+	*/
 	private String getUnableToMoveFiles(){
 		String buildMeUp = "";
 		for(String filename : filesFailedMove){
