@@ -54,7 +54,7 @@ public class MainWindow {
 	 */
 	private void initialize() {
 		frmFileautoorganizerV = new JFrame();
-		frmFileautoorganizerV.setTitle("File-Auto-Organizer v0.1");
+		frmFileautoorganizerV.setTitle("File-Auto-Organizer v1.0");
 		frmFileautoorganizerV.setBounds(100, 100, 338, 113);
 		frmFileautoorganizerV.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFileautoorganizerV.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
